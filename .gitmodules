@@ -1,0 +1,3 @@
+[submodule "mdt-css"]
+	path = www/css
+	url = https://github.com/zeruch-gl/mdt-css
