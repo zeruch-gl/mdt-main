@@ -62,7 +62,7 @@ pipeline{
           nexusArtifactUploader artifacts: [[artifactId: 'site-archive-yevhenii-bondarevskyi', \
                                             classifier: '', file: 'site-archive-yevhenii-bondarevskyi.tgz', \
                                             type: 'tgz']], \
-                                            credentialsId: 'jenkins-test', \
+                                            credentialsId: 'jenkins-demo', \
                                             groupId: 'site-archive', \
                                             nexusUrl: 'master.jenkins-practice.tk:9443', \
                                             nexusVersion: 'nexus3', \
