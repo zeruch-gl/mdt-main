@@ -59,9 +59,19 @@ pipeline{
           sh """
             cd ${WORKSPACE}/www
             tar --exclude='./css' --exclude='./js' -c -z -f ../site-archive-${params.ENV}-${params.VER}-${BUILD_NUMBER}.tgz ."""
+          nexusArtifactUploader artifacts: [[artifactId: 'site-archive-yevhenii-bondarevskyi', \
+                                            classifier: '', file: 'site-archive-yevhenii-bondarevskyi.tgz', \
+                                            type: 'tgz']], \
+                                            credentialsId: '1f0a5e38-9f03-453e-ae24-960f85a289e3', \
+                                            groupId: 'site-archive', \
+                                            nexusUrl: 'master.jenkins-practice.tk:9443', \
+                                            nexusVersion: 'nexus2', \
+                                            protocol: 'https', \
+                                            repository: 'raw-demo-hosted', \
+                                            version: '${VER}-${BUILD_NUMBER}' 
         }
       }
-    }        
+    }      
     stage('Archive when') {
       when {
         expression {
