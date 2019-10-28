@@ -58,14 +58,14 @@ pipeline{
         script { 
           sh """
             cd ${WORKSPACE}/www
-            tar --exclude='./css' --exclude='./js' -c -z -f ../site-archive-${params.ENV}-${params.VER}-${BUILD_NUMBER}.tgz ."""
+            tar --exclude='./css' --exclude='./js' -c -z -f ../site-archive-yevhenii-bondarevskyi.tgz ."""
           nexusArtifactUploader artifacts: [[artifactId: 'site-archive-yevhenii-bondarevskyi', \
                                             classifier: '', file: 'site-archive-yevhenii-bondarevskyi.tgz', \
                                             type: 'tgz']], \
-                                            credentialsId: '1f0a5e38-9f03-453e-ae24-960f85a289e3', \
+                                            credentialsId: 'jenkins-test', \
                                             groupId: 'site-archive', \
                                             nexusUrl: 'master.jenkins-practice.tk:9443', \
-                                            nexusVersion: 'nexus2', \
+                                            nexusVersion: 'nexus3', \
                                             protocol: 'https', \
                                             repository: 'raw-demo-hosted', \
                                             version: '${VER}-${BUILD_NUMBER}' 
