@@ -12,19 +12,19 @@ pipeline{
     //     git poll: false, url: 'https://github.com/dbielik/mdt-lab.git'
     //   }
     // }
-    // stage('Sonar') {
-    //         steps {
-    //             withSonarQubeEnv(installationName: 'sonarqube-external', credentialsId: 'sonarqube-server') {
-    //                 script {
-    //                     sonarHome = tool 'sonarscanner4'
-    //                     sh """
-    //                     ${sonarHome}/bin/sonar-scanner -Dsonar.projectKey=student1-project -Dsonar.sources=www
-    //                     """
-    //                 }
-    //             }
-    //         }
+    stage('Sonar') {
+            steps {
+                withSonarQubeEnv(installationName: 'sonarqube-external', credentialsId: 'sonarqube-server') {
+                    script {
+                        sonarHome = tool 'sonarscanner4'
+                        sh """
+                        ${sonarHome}/bin/sonar-scanner -Dsonar.projectKey=student1-project -Dsonar.sources=www
+                        """
+                    }
+                }
+            }
             
-    //     }
+         }
         // stage('Quality gate') {
         //     steps {
         //         waitForQualityGate abortPipeline: true
