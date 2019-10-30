@@ -58,16 +58,16 @@ pipeline{
         script { 
           sh """
             cd ${WORKSPACE}/www
-            tar --exclude='./css' --exclude='./js' -c -z -f ../site-archive-yevhenii-bondarevskyi.tgz ."""
-          nexusArtifactUploader artifacts: [[artifactId: 'site-archive-yevhenii-bondarevskyi', \
-                                            classifier: '', file: 'site-archive-yevhenii-bondarevskyi.tgz', \
+            tar --exclude='./css' --exclude='./js' -c -z -f ../site-archive-student-1.tgz ."""
+          nexusArtifactUploader artifacts: [[artifactId: 'site-archive-student-1', \
+                                            classifier: '', file: 'site-archive-student-1.tgz', \
                                             type: 'tgz']], \
-                                            credentialsId: 'jenkins-demo', \
+                                            credentialsId: 'student1-nexus', \
                                             groupId: 'site-archive', \
                                             nexusUrl: 'master.jenkins-practice.tk:9443', \
                                             nexusVersion: 'nexus3', \
                                             protocol: 'https', \
-                                            repository: 'raw-demo-hosted', \
+                                            repository: 'student1-repo', \
                                             version: '${VER}-${BUILD_NUMBER}' 
         }
       }
