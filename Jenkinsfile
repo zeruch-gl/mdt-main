@@ -58,7 +58,7 @@ pipeline{
         script { 
           sh """
             cd ${WORKSPACE}/www
-            def VER = readFile ${WORKSPACE}/version.txt
+            VER = readFile ${WORKSPACE}/version.txt
             tar --exclude='./css' --exclude='./js' -c -z -f ../site-archive-student-1.tgz ."""
           nexusArtifactUploader artifacts: [[artifactId: 'site-archive-student-1', \
                                             classifier: '', file: 'site-archive-student-1.tgz', \
