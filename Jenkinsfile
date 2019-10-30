@@ -1,10 +1,7 @@
-properties([[$class: 'JiraProjectProperty'], parameters([choice(choices: ['RELEASE', 'DEVELOP'], description: '', name: 'ENV'), choice(choices: ['0.1.0'], description: '', name: 'VER')])])
+properties([[$class: 'JiraProjectProperty']])
 pipeline{
   agent {
     label('Demo')
-  }
-  tools {
-    nodejs('Node12')
   }
   stages{
     stage('Sonar') {
