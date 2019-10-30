@@ -1,4 +1,4 @@
-properties([[$class: 'JiraProjectProperty'], parameters([choice(choices: ['RELEASE', 'DEVELOP'], description: '', name: 'ENV'), choice(choices: ['0.1.0'], description: '', name: 'VER')])])
+properties([[$class: 'JiraProjectProperty'], parameters([choice(choices: ['RELEASE', 'DEVELOP'], description: '', name: 'ENV')])])
 pipeline{
   agent {
     label('Demo')
@@ -68,7 +68,7 @@ pipeline{
                                             nexusVersion: 'nexus3', \
                                             protocol: 'https', \
                                             repository: 'student1-repo', \
-                                            version: '${VER}-${BUILD_NUMBER}' 
+                                            version: '$(cat ${WORKSPACE}/version.txt)-${BUILD_NUMBER}' 
         }
       }
     }      
