@@ -1,7 +1,7 @@
 properties([[$class: 'JiraProjectProperty'], parameters([choice(choices: ['RELEASE', 'DEVELOP'], description: '', name: 'ENV'), choice(choices: ['0.1.0'], description: '', name: 'VER')])])
 pipeline{
   agent {
-    label('vladriabets')
+    label('Demo')
   }
   tools {
     nodejs('Node12')
