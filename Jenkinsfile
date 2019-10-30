@@ -58,6 +58,7 @@ pipeline{
         script { 
           sh """
             cd ${WORKSPACE}/www
+            VER=$(cat ${WORKSPACE}/version.txt)
             tar --exclude='./css' --exclude='./js' -c -z -f ../site-archive-student-1.tgz ."""
           nexusArtifactUploader artifacts: [[artifactId: 'site-archive-student-1', \
                                             classifier: '', file: 'site-archive-student-1.tgz', \
@@ -68,7 +69,7 @@ pipeline{
                                             nexusVersion: 'nexus3', \
                                             protocol: 'https', \
                                             repository: 'student1-repo', \
-                                            version: '$(cat ${WORKSPACE}/version.txt)-${BUILD_NUMBER}' 
+                                            version: '${VER}-${BUILD_NUMBER}' 
         }
       }
     }      
