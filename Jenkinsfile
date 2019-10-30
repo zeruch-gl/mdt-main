@@ -1,4 +1,4 @@
-properties([[$class: 'JiraProjectProperty'], parameters([choice(choices: ['RELEASE', 'DEVELOP'], description: '', name: 'ENV')])])
+properties([[$class: 'JiraProjectProperty']])
 pipeline{
   agent {
     label('Demo')
