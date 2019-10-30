@@ -18,7 +18,7 @@ pipeline{
                     script {
                         sonarHome = tool 'sonarscanner4'
                         sh """
-                        ${sonarHome}/bin/sonar-scanner -Dsonar.projectKey=student1-project -Dsonar.sources=student1-project
+                        ${sonarHome}/bin/sonar-scanner -Dsonar.projectKey=student1-project -Dsonar.sources=www
                         """
                     }
                 }
