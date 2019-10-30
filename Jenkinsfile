@@ -73,15 +73,5 @@ pipeline{
         }
       }
     }      
-    stage('Archive when') {
-      when {
-        expression {
-          params.RELEASE == 'RELEASE' 
-        }
-      }
-      steps {
-        archive '*.tgz'
-      }
-    }
   }
 }
