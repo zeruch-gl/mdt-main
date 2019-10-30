@@ -69,7 +69,7 @@ pipeline{
                                             nexusVersion: 'nexus3', \
                                             protocol: 'https', \
                                             repository: 'student1-repo', \
-                                            version: `${VER}-${BUILD_NUMBER}` 
+                                            version: '${VER}-${BUILD_NUMBER}' 
         }
       }
     }      
